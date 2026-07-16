@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>      
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload to Cloud</h1>
+        <p class="subtitle">Upload your images directly to AWS S3 bucket</p>
+        
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="image" id="imageInput" accept="image/*" required>
+            
+            <div id="previewContainer">
+                <img id="imagePreview" src="" alt="Preview">
+            </div>
+
+            <!-- שורת התקדמות בזמן אמת -->
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar">0%</div>
+            </div>
+
+            <button type="submit" id="uploadBtn">Upload Image</button>
+        </form>
+        <div id="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

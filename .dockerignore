@@ -1,0 +1,19 @@
+# התקנות מקומיות (לא רוצים להעתיק אותן, דוקר יתקין בעצמו בפנים)
+node_modules
+npm-debug.log
+
+# קבצי הגדרות וסביבה רגישים
+.env
+.env.local
+.git
+.gitignore
+
+# קבצי הגדרות של Docker עצמו
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# קבצי תיעוד ועורכי קוד שלא קשורים לריצה
+README.md
+.vscode/
+.idea/
