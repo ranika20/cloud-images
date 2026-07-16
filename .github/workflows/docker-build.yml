@@ -1,4 +1,4 @@
-name: Docker Build Check
+name: cloud-images
 
 # מתי להריץ את התהליך?
 on:
