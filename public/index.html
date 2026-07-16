@@ -18,7 +18,8 @@
                 <img id="imagePreview" src="" alt="Preview">
             </div>
 
-            <!-- שורת התקדמות בזמן אמת -->
+            <input type="text" id="descriptionInput" placeholder="Add a short description..." maxlength="100" style="width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
+
             <div class="progress-container" id="progressContainer">
                 <div class="progress-bar" id="progressBar">0%</div>
             </div>
@@ -26,9 +27,14 @@
             <button type="submit" id="uploadBtn">Upload Image</button>
         </form>
         <div id="message"></div>
+
+        <hr style="border: 0; height: 1px; background: #e2e8f0; margin: 40px 0;">
+        <h2>My Gallery</h2>
+        <div id="gallery" class="gallery-grid">
+            <p id="noImagesMessage" style="grid-column: 1 / -1; color: #64748b; font-style: italic;">No images in your gallery yet. Upload one!</p>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
