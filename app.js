@@ -15,16 +15,14 @@ const port = process.env.PORT || 3000; // הגדרת הפורט - תומך בפ�
 // הגדרה קריטית: מאפשרת לשרת לקרוא מידע בפורמט JSON שנשלח מהדפדפן (למשל בקשות מחיקה)
 app.use(express.json());
 
-// 1. הגדרת החיבור המאובטח ל-S3 בעזרת מפתחות הגישה שלנו
+// 1. הגדרת החיבור המאובטח ל-S3 (ללא credentials מפורשים - נשען על IAM Task Role)
 const s3 = new S3Client({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
+  region: process.env.AWS_REGION || "eu-central-1"
 });
 
-const BUCKET = process.env.S3_BUCKET;
+
+const BUCKET_NAME = process.env.BUCKET_NAME || 'aws.nodejs-course'; // שם הבאקט ב-S3 שאליו נעלה את התמונות
+
 
 // 2. הגדרת Multer לשמירת הקבצים המועלים בזיכרון השרת (RAM) באופן זמני
 const upload = multer({ storage: multer.memoryStorage() });

@@ -2,18 +2,21 @@ version: '3.8'
 
 services:
   web-app:
-    build: .
+    build:
+      context: .
+      target: runner
+      env_file:
+        - .env
     ports:
       - "3000:3000"
       - "8080:8080"
       - "5000:3000"
-    environment:
-      - PORT=3000
-      # Docker Compose יקח את הערכים מהקובץ .env ויזריק אותם לקונטיינר
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-      - AWS_REGION=${AWS_REGION}
-      - S3_BUCKET=${S3_BUCKET} 
+      - "8080:3000"
+ 
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./app.js/app/app.js
+      - ./public:/app/public
+      - /app/node_modules
+    command: ["nodemon" ,"app.js"]
+    restart: unless-stopped
+

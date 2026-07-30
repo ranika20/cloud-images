@@ -1,0 +1,30 @@
+name: cloud-images
+
+# מתי להריץ את התהליך?
+on:
+  push:
+    branches: [ "main" ] # בכל פעם שאתה דוחף קוד ל-main
+  pull_request:
+    branches: [ "main" ] # בכל פעם שנפתחת בקשת מיזוג ל-main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # הריצה תתבצע על שרת לינוקס של GitHub
+
+    steps:
+    # 1. משיכת הקוד מהמאגר שלך ב-GitHub לשרת הריצה
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2. הגדרת סביבת Docker בשרת הריצה
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    # 3. בדיקה ובנייה של ה-Docker Image של האפליקציה שלך
+    - name: Build Docker Image
+      run: |
+        docker build -t cloud-images-app:latest .
+        
+    # 4. הדפסת הודעת הצלחה
+    - name: Success Message
+      run: echo "🎉 Docker image built successfully in GitHub Actions!"

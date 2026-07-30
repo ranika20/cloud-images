@@ -1,12 +1,14 @@
 # התקנות מקומיות (לא רוצים להעתיק אותן, דוקר יתקין בעצמו בפנים)
 node_modules
 npm-debug.log
-
+node_module
 # קבצי הגדרות וסביבה רגישים
 .env
+.env*
 .env.local
 .git
 .gitignore
+.github
 
 # קבצי הגדרות של Docker עצמו
 Dockerfile
