@@ -19,4 +19,4 @@ COPY . .
 EXPOSE 3000
 
 # 7. הפקודה שמריצה את האפליקציה
-CMD ["node", "app.js"]
+CMD ["node","--max-old-space-size=400", "app.js"]
