@@ -21,7 +21,7 @@ const s3 = new S3Client({
 });
 
 
-const BUCKET = process.env.BUCKET_NAME || 'aws.nodejs-course'; // שם הבאקט ב-S3 שאליו נעלה את התמונות
+const BUCKET =  'aws.nodejs-course'; // שם הבאקט ב-S3 שאליו נעלה את התמונות
 
 
 // 2. הגדרת Multer לשמירת הקבצים המועלים בזיכרון השרת (RAM) באופן זמני
